@@ -2,8 +2,8 @@ import {
   Accordion,
   AccordionContent,
   AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
+  AccordionTrigger } from
+"@/components/ui/accordion";
 
 interface FAQItem {
   question: string;
@@ -17,12 +17,12 @@ interface FAQProps {
 
 const FAQ = ({ items, title = "Frequently Asked Questions" }: FAQProps) => {
   return (
-    <section className="section-padding bg-muted">
+    <section className="section-padding bg-slate-200">
       <div className="container mx-auto max-w-3xl">
         <h2 className="text-3xl md:text-4xl font-heading font-bold text-center mb-10">{title}</h2>
         <Accordion type="single" collapsible className="space-y-3">
-          {items.map((item, i) => (
-            <AccordionItem key={i} value={`item-${i}`} className="bg-card rounded-lg border border-border px-6">
+          {items.map((item, i) =>
+          <AccordionItem key={i} value={`item-${i}`} className="bg-card rounded-lg border border-border px-6">
               <AccordionTrigger className="text-left font-medium text-base">
                 {item.question}
               </AccordionTrigger>
@@ -30,11 +30,11 @@ const FAQ = ({ items, title = "Frequently Asked Questions" }: FAQProps) => {
                 {item.answer}
               </AccordionContent>
             </AccordionItem>
-          ))}
+          )}
         </Accordion>
       </div>
-    </section>
-  );
+    </section>);
+
 };
 
 export default FAQ;
