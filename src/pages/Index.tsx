@@ -9,49 +9,49 @@ import resortImage from "@/assets/resort.jpg";
 import carImage from "@/assets/car-rental.jpg";
 
 const services = [
-  {
-    icon: TreePine,
-    title: "Jungle Safari Booking",
-    desc: "Pench & Kanha Tiger Reserve safari assistance with zone guidance and confirmed bookings.",
-    link: "/pench-safari",
-    image: penchImage,
-  },
-  {
-    icon: Hotel,
-    title: "Hotels & Resorts",
-    desc: "Verified, clean and comfortable stays near wildlife zones.",
-    link: "/hotels",
-    image: resortImage,
-  },
-  {
-    icon: Car,
-    title: "Car Rental Services",
-    desc: "Luxury cars, SUVs and small vehicles with professional drivers.",
-    link: "/car-rental",
-    image: carImage,
-  },
-];
+{
+  icon: TreePine,
+  title: "Jungle Safari Booking",
+  desc: "Pench & Kanha Tiger Reserve safari assistance with zone guidance and confirmed bookings.",
+  link: "/pench-safari",
+  image: penchImage
+},
+{
+  icon: Hotel,
+  title: "Hotels & Resorts",
+  desc: "Verified, clean and comfortable stays near wildlife zones.",
+  link: "/hotels",
+  image: resortImage
+},
+{
+  icon: Car,
+  title: "Car Rental Services",
+  desc: "Luxury cars, SUVs and small vehicles with professional drivers.",
+  link: "/car-rental",
+  image: carImage
+}];
+
 
 const whyUs = [
-  "Trusted Safari Assistance from Nagpur",
-  "Transparent Pricing",
-  "Verified Resorts",
-  "Professional Drivers",
-  "Personalized Travel Planning",
-];
+"Trusted Safari Assistance from Nagpur",
+"Transparent Pricing",
+"Verified Resorts",
+"Professional Drivers",
+"Personalized Travel Planning"];
+
 
 const testimonials = [
-  { name: "Rajesh Sharma", text: "Wonderful experience! The safari booking was smooth and the resort was perfect for my family.", rating: 5 },
-  { name: "Priya Deshmukh", text: "Very professional service. Gautam Tours made our Pench trip absolutely hassle-free.", rating: 5 },
-  { name: "Anil Patil", text: "Great car service and well-organized safari. Highly recommended for wildlife lovers.", rating: 5 },
-];
+{ name: "Rajesh Sharma", text: "Wonderful experience! The safari booking was smooth and the resort was perfect for my family.", rating: 5 },
+{ name: "Priya Deshmukh", text: "Very professional service. Gautam Tours made our Pench trip absolutely hassle-free.", rating: 5 },
+{ name: "Anil Patil", text: "Great car service and well-organized safari. Highly recommended for wildlife lovers.", rating: 5 }];
+
 
 const faqItems = [
-  { question: "How do I book a jungle safari?", answer: "Simply contact us via phone or WhatsApp at +91 9325673079. We'll help you choose the best zone, date, and accommodation for your trip." },
-  { question: "What is the best time to visit Pench or Kanha?", answer: "The best time is from October to June. Peak tiger sighting season is from February to May." },
-  { question: "Do you provide pickup from Nagpur?", answer: "Yes, we provide pickup and drop services from Nagpur to both Pench and Kanha Tiger Reserves." },
-  { question: "Are the resorts family-friendly?", answer: "Absolutely! All our partner resorts are verified for cleanliness, safety, and comfort — perfect for families." },
-];
+{ question: "How do I book a jungle safari?", answer: "Simply contact us via phone or WhatsApp at +91 9325673079. We'll help you choose the best zone, date, and accommodation for your trip." },
+{ question: "What is the best time to visit Pench or Kanha?", answer: "The best time is from October to June. Peak tiger sighting season is from February to May." },
+{ question: "Do you provide pickup from Nagpur?", answer: "Yes, we provide pickup and drop services from Nagpur to both Pench and Kanha Tiger Reserves." },
+{ question: "Are the resorts family-friendly?", answer: "Absolutely! All our partner resorts are verified for cleanliness, safety, and comfort — perfect for families." }];
+
 
 const Index = () => {
   return (
@@ -102,18 +102,18 @@ const Index = () => {
         <div className="container mx-auto">
           <h2 className="text-3xl md:text-4xl font-heading font-bold text-center mb-12">Our Core Services</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {services.map((service) => (
-              <Link
-                key={service.title}
-                to={service.link}
-                className="group bg-card rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-border"
-              >
+            {services.map((service) =>
+            <Link
+              key={service.title}
+              to={service.link}
+              className="group bg-card rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-border">
+
                 <div className="h-52 overflow-hidden">
                   <img
-                    src={service.image}
-                    alt={service.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
+                  src={service.image}
+                  alt={service.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+
                 </div>
                 <div className="p-6">
                   <div className="flex items-center gap-3 mb-3">
@@ -128,22 +128,22 @@ const Index = () => {
                   </span>
                 </div>
               </Link>
-            ))}
+            )}
           </div>
         </div>
       </section>
 
       {/* Why Choose Us */}
-      <section className="section-padding bg-primary text-primary-foreground">
+      <section className="section-padding text-black bg-slate-200">
         <div className="container mx-auto">
           <h2 className="text-3xl md:text-4xl font-heading font-bold text-center mb-12">Why Choose Us?</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
-            {whyUs.map((item) => (
-              <div key={item} className="flex items-center gap-3 bg-primary-foreground/10 rounded-xl p-5">
+            {whyUs.map((item) =>
+            <div key={item} className="flex items-center gap-3 rounded-xl p-5 bg-slate-500">
                 <CheckCircle className="h-6 w-6 shrink-0 text-beige" />
                 <span className="font-medium text-sm">{item}</span>
               </div>
-            ))}
+            )}
           </div>
         </div>
       </section>
@@ -175,17 +175,17 @@ const Index = () => {
         <div className="container mx-auto">
           <h2 className="text-3xl md:text-4xl font-heading font-bold text-center mb-12">What Our Guests Say</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {testimonials.map((t, i) => (
-              <div key={i} className="bg-background rounded-xl p-6 border border-border shadow-sm">
+            {testimonials.map((t, i) =>
+            <div key={i} className="bg-background rounded-xl p-6 border border-border shadow-sm">
                 <div className="flex gap-1 mb-3">
-                  {Array.from({ length: t.rating }).map((_, j) => (
-                    <Star key={j} className="h-4 w-4 fill-warm text-warm" />
-                  ))}
+                  {Array.from({ length: t.rating }).map((_, j) =>
+                <Star key={j} className="h-4 w-4 fill-warm text-warm" />
+                )}
                 </div>
                 <p className="text-muted-foreground text-sm mb-4 italic">"{t.text}"</p>
                 <p className="font-semibold text-sm">{t.name}</p>
               </div>
-            ))}
+            )}
           </div>
           <div className="text-center mt-8">
             <Link to="/testimonials">
@@ -197,8 +197,8 @@ const Index = () => {
 
       {/* FAQ */}
       <FAQ items={faqItems} />
-    </Layout>
-  );
+    </Layout>);
+
 };
 
 export default Index;
