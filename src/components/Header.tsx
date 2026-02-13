@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import logo from "@/assets/logo.png";
 
 const navItems = [
   { label: "Home", path: "/" },
@@ -23,10 +24,7 @@ const Header = () => {
     <header className="fixed top-0 left-0 right-0 z-50 bg-card/95 backdrop-blur-md shadow-sm border-b border-border">
       <div className="container mx-auto flex items-center justify-between h-16 md:h-20 px-4">
         <Link to="/" className="flex items-center gap-2">
-          <span className="text-xl md:text-2xl font-heading font-bold text-primary">
-            Gautam Tours
-          </span>
-          <span className="hidden sm:inline text-xs text-muted-foreground font-body">& Travels</span>
+          <img src={logo} alt="Gautam Tours and Travels" className="h-10 md:h-14 w-auto" />
         </Link>
 
         {/* Desktop Nav */}
