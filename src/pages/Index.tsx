@@ -149,7 +149,7 @@ const Index = () => {
       </section>
 
       {/* CTA Banner */}
-      <section className="section-padding bg-secondary">
+      <section className="section-padding bg-slate-300">
         <div className="container mx-auto text-center max-w-2xl">
           <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">Limited Safari Slots Available</h2>
           <p className="text-muted-foreground mb-8">
