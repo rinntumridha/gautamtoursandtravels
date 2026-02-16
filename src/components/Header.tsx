@@ -11,6 +11,7 @@ const navItems = [
   { label: "Hotels & Resorts", path: "/hotels" },
   { label: "Car Rental", path: "/car-rental" },
   { label: "Packages", path: "/packages" },
+  { label: "Blog", path: "/blog" },
   { label: "Gallery", path: "/gallery" },
   { label: "Testimonials", path: "/testimonials" },
   { label: "Contact", path: "/contact" },
