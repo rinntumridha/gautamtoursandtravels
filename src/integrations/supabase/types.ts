@@ -14,9 +14,64 @@ export type Database = {
   }
   public: {
     Tables: {
+      blog_categories: {
+        Row: {
+          created_at: string
+          id: string
+          name: string
+          slug: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          name: string
+          slug: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          name?: string
+          slug?: string
+        }
+        Relationships: []
+      }
+      blog_post_tags: {
+        Row: {
+          id: string
+          post_id: string
+          tag_id: string
+        }
+        Insert: {
+          id?: string
+          post_id: string
+          tag_id: string
+        }
+        Update: {
+          id?: string
+          post_id?: string
+          tag_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "blog_post_tags_post_id_fkey"
+            columns: ["post_id"]
+            isOneToOne: false
+            referencedRelation: "blog_posts"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "blog_post_tags_tag_id_fkey"
+            columns: ["tag_id"]
+            isOneToOne: false
+            referencedRelation: "blog_tags"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       blog_posts: {
         Row: {
           author_name: string
+          category_id: string | null
           content: string
           created_at: string
           created_by: string | null
@@ -27,12 +82,15 @@ export type Database = {
           meta_title: string | null
           publish_date: string | null
           published: boolean
+          scheduled_at: string | null
           slug: string
+          status: string
           title: string
           updated_at: string
         }
         Insert: {
           author_name?: string
+          category_id?: string | null
           content?: string
           created_at?: string
           created_by?: string | null
@@ -43,12 +101,15 @@ export type Database = {
           meta_title?: string | null
           publish_date?: string | null
           published?: boolean
+          scheduled_at?: string | null
           slug: string
+          status?: string
           title: string
           updated_at?: string
         }
         Update: {
           author_name?: string
+          category_id?: string | null
           content?: string
           created_at?: string
           created_by?: string | null
@@ -59,7 +120,83 @@ export type Database = {
           meta_title?: string | null
           publish_date?: string | null
           published?: boolean
+          scheduled_at?: string | null
           slug?: string
+          status?: string
+          title?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "blog_posts_category_id_fkey"
+            columns: ["category_id"]
+            isOneToOne: false
+            referencedRelation: "blog_categories"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      blog_tags: {
+        Row: {
+          created_at: string
+          id: string
+          name: string
+          slug: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          name: string
+          slug: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          name?: string
+          slug?: string
+        }
+        Relationships: []
+      }
+      cms_pages: {
+        Row: {
+          content: string
+          created_at: string
+          created_by: string | null
+          id: string
+          meta_description: string | null
+          meta_title: string | null
+          og_image_url: string | null
+          published: boolean
+          slug: string
+          sort_order: number
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          content?: string
+          created_at?: string
+          created_by?: string | null
+          id?: string
+          meta_description?: string | null
+          meta_title?: string | null
+          og_image_url?: string | null
+          published?: boolean
+          slug: string
+          sort_order?: number
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          content?: string
+          created_at?: string
+          created_by?: string | null
+          id?: string
+          meta_description?: string | null
+          meta_title?: string | null
+          og_image_url?: string | null
+          published?: boolean
+          slug?: string
+          sort_order?: number
           title?: string
           updated_at?: string
         }
@@ -68,6 +205,7 @@ export type Database = {
       gallery_images: {
         Row: {
           alt_text: string | null
+          caption: string | null
           created_at: string
           created_by: string | null
           id: string
@@ -76,6 +214,7 @@ export type Database = {
         }
         Insert: {
           alt_text?: string | null
+          caption?: string | null
           created_at?: string
           created_by?: string | null
           id?: string
@@ -84,11 +223,51 @@ export type Database = {
         }
         Update: {
           alt_text?: string | null
+          caption?: string | null
           created_at?: string
           created_by?: string | null
           id?: string
           image_url?: string
           sort_order?: number
+        }
+        Relationships: []
+      }
+      media_library: {
+        Row: {
+          alt_text: string | null
+          created_at: string
+          file_name: string
+          file_size: number | null
+          file_type: string | null
+          file_url: string
+          height: number | null
+          id: string
+          uploaded_by: string | null
+          width: number | null
+        }
+        Insert: {
+          alt_text?: string | null
+          created_at?: string
+          file_name: string
+          file_size?: number | null
+          file_type?: string | null
+          file_url: string
+          height?: number | null
+          id?: string
+          uploaded_by?: string | null
+          width?: number | null
+        }
+        Update: {
+          alt_text?: string | null
+          created_at?: string
+          file_name?: string
+          file_size?: number | null
+          file_type?: string | null
+          file_url?: string
+          height?: number | null
+          id?: string
+          uploaded_by?: string | null
+          width?: number | null
         }
         Relationships: []
       }
@@ -149,6 +328,30 @@ export type Database = {
           id?: string
           updated_at?: string
           user_id?: string
+        }
+        Relationships: []
+      }
+      site_settings: {
+        Row: {
+          id: string
+          setting_key: string
+          setting_value: string | null
+          updated_at: string
+          updated_by: string | null
+        }
+        Insert: {
+          id?: string
+          setting_key: string
+          setting_value?: string | null
+          updated_at?: string
+          updated_by?: string | null
+        }
+        Update: {
+          id?: string
+          setting_key?: string
+          setting_value?: string | null
+          updated_at?: string
+          updated_by?: string | null
         }
         Relationships: []
       }
