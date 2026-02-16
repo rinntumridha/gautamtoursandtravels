@@ -4,13 +4,14 @@ import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/contexts/AuthContext";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Plus, Trash2, GripVertical } from "lucide-react";
+import { Plus, Trash2, ArrowUp, ArrowDown } from "lucide-react";
 import { toast } from "sonner";
 
 interface GalleryImage {
   id: string;
   image_url: string;
   alt_text: string | null;
+  caption: string | null;
   sort_order: number;
 }
 
@@ -26,7 +27,6 @@ const AdminGallery = () => {
     setImages((data as GalleryImage[]) || []);
     setLoading(false);
   };
-
   useEffect(() => { fetchImages(); }, []);
 
   const handleUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -49,24 +49,26 @@ const AdminGallery = () => {
     toast.success("Images uploaded");
     setUploading(false);
     fetchImages();
+    if (fileRef.current) fileRef.current.value = "";
   };
 
-  const handleDelete = async (img: GalleryImage) => {
+  const handleDelete = async (id: string) => {
     if (!confirm("Delete this image?")) return;
-    await supabase.from("gallery_images").delete().eq("id", img.id);
+    await supabase.from("gallery_images").delete().eq("id", id);
     toast.success("Deleted");
     fetchImages();
   };
 
-  const handleAltChange = async (id: string, alt_text: string) => {
-    setImages((prev) => prev.map((img) => (img.id === id ? { ...img, alt_text } : img)));
-    await supabase.from("gallery_images").update({ alt_text }).eq("id", id);
+  const handleFieldChange = async (id: string, field: "alt_text" | "caption", value: string) => {
+    setImages((prev) => prev.map((img) => (img.id === id ? { ...img, [field]: value } : img)));
+    await supabase.from("gallery_images").update({ [field]: value }).eq("id", id);
   };
 
-  const handleMoveUp = async (index: number) => {
-    if (index === 0) return;
+  const handleMove = async (index: number, direction: "up" | "down") => {
+    const swapIndex = direction === "up" ? index - 1 : index + 1;
+    if (swapIndex < 0 || swapIndex >= images.length) return;
     const newImages = [...images];
-    [newImages[index - 1], newImages[index]] = [newImages[index], newImages[index - 1]];
+    [newImages[index], newImages[swapIndex]] = [newImages[swapIndex], newImages[index]];
     setImages(newImages);
     await Promise.all(
       newImages.map((img, i) => supabase.from("gallery_images").update({ sort_order: i }).eq("id", img.id))
@@ -74,44 +76,53 @@ const AdminGallery = () => {
   };
 
   return (
-    <AdminLayout>
-      <div className="flex items-center justify-between mb-6">
-        <h2 className="text-xl font-heading font-bold">Gallery Management</h2>
-        <Button size="sm" className="gap-1" onClick={() => fileRef.current?.click()} disabled={uploading}>
-          <Plus className="h-4 w-4" /> {uploading ? "Uploading..." : "Upload Images"}
-        </Button>
-        <input ref={fileRef} type="file" accept="image/*" multiple className="hidden" onChange={handleUpload} />
-      </div>
+    <AdminLayout title="Gallery Manager">
+      <div className="space-y-4">
+        <div className="flex justify-between items-center">
+          <p className="text-sm text-muted-foreground">{images.length} image(s)</p>
+          <Button size="sm" className="gap-1" onClick={() => fileRef.current?.click()} disabled={uploading}>
+            <Plus className="h-4 w-4" /> {uploading ? "Uploading..." : "Upload Images"}
+          </Button>
+          <input ref={fileRef} type="file" accept="image/*" multiple className="hidden" onChange={handleUpload} />
+        </div>
 
-      {loading ? (
-        <p className="text-muted-foreground">Loading...</p>
-      ) : images.length === 0 ? (
-        <p className="text-muted-foreground">No gallery images yet.</p>
-      ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {images.map((img, i) => (
-            <div key={img.id} className="bg-card rounded-lg border border-border overflow-hidden">
-              <img src={img.image_url} alt={img.alt_text || ""} className="h-48 w-full object-cover" />
-              <div className="p-3 space-y-2">
-                <Input
-                  value={img.alt_text || ""}
-                  onChange={(e) => handleAltChange(img.id, e.target.value)}
-                  placeholder="Alt text for SEO"
-                  className="text-xs"
-                />
-                <div className="flex gap-1">
-                  <Button variant="ghost" size="sm" onClick={() => handleMoveUp(i)} disabled={i === 0}>
-                    <GripVertical className="h-3 w-3 mr-1" /> Move Up
-                  </Button>
-                  <Button variant="ghost" size="sm" onClick={() => handleDelete(img)}>
-                    <Trash2 className="h-3 w-3 mr-1 text-destructive" /> Delete
-                  </Button>
+        {loading ? <p className="text-muted-foreground text-center py-8">Loading...</p> : images.length === 0 ? (
+          <p className="text-muted-foreground text-center py-8">No gallery images yet.</p>
+        ) : (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {images.map((img, i) => (
+              <div key={img.id} className="bg-card rounded-lg border border-border overflow-hidden">
+                <img src={img.image_url} alt={img.alt_text || ""} className="h-48 w-full object-cover" loading="lazy" />
+                <div className="p-3 space-y-2">
+                  <Input
+                    value={img.alt_text || ""}
+                    onChange={(e) => handleFieldChange(img.id, "alt_text", e.target.value)}
+                    placeholder="Alt text for SEO"
+                    className="text-xs"
+                  />
+                  <Input
+                    value={img.caption || ""}
+                    onChange={(e) => handleFieldChange(img.id, "caption", e.target.value)}
+                    placeholder="Caption"
+                    className="text-xs"
+                  />
+                  <div className="flex gap-1">
+                    <Button variant="ghost" size="sm" className="h-7 text-xs" onClick={() => handleMove(i, "up")} disabled={i === 0}>
+                      <ArrowUp className="h-3 w-3" />
+                    </Button>
+                    <Button variant="ghost" size="sm" className="h-7 text-xs" onClick={() => handleMove(i, "down")} disabled={i === images.length - 1}>
+                      <ArrowDown className="h-3 w-3" />
+                    </Button>
+                    <Button variant="ghost" size="sm" className="h-7 text-xs ml-auto" onClick={() => handleDelete(img.id)}>
+                      <Trash2 className="h-3 w-3 text-destructive" />
+                    </Button>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
-        </div>
-      )}
+            ))}
+          </div>
+        )}
+      </div>
     </AdminLayout>
   );
 };

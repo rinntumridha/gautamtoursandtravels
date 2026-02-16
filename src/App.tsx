@@ -19,12 +19,21 @@ const Testimonials = lazy(() => import("./pages/Testimonials"));
 const Contact = lazy(() => import("./pages/Contact"));
 const Blog = lazy(() => import("./pages/Blog"));
 const BlogPost = lazy(() => import("./pages/BlogPost"));
+
+// Admin
 const AdminLogin = lazy(() => import("./pages/admin/AdminLogin"));
 const AdminDashboard = lazy(() => import("./pages/admin/AdminDashboard"));
 const AdminBlogs = lazy(() => import("./pages/admin/AdminBlogs"));
 const AdminBlogEditor = lazy(() => import("./pages/admin/AdminBlogEditor"));
+const AdminCategories = lazy(() => import("./pages/admin/AdminCategories"));
+const AdminTags = lazy(() => import("./pages/admin/AdminTags"));
+const AdminPages = lazy(() => import("./pages/admin/AdminPages"));
+const AdminPageEditor = lazy(() => import("./pages/admin/AdminPageEditor"));
+const AdminMedia = lazy(() => import("./pages/admin/AdminMedia"));
 const AdminGallery = lazy(() => import("./pages/admin/AdminGallery"));
 const AdminSeo = lazy(() => import("./pages/admin/AdminSeo"));
+const AdminSettings = lazy(() => import("./pages/admin/AdminSettings"));
+const AdminUsers = lazy(() => import("./pages/admin/AdminUsers"));
 
 const queryClient = new QueryClient();
 
@@ -43,6 +52,7 @@ const App = () => (
         <BrowserRouter>
           <Suspense fallback={<Loading />}>
             <Routes>
+              {/* Public */}
               <Route path="/" element={<Index />} />
               <Route path="/pench-safari" element={<PenchSafari />} />
               <Route path="/kanha-safari" element={<KanhaSafari />} />
@@ -54,12 +64,22 @@ const App = () => (
               <Route path="/contact" element={<Contact />} />
               <Route path="/blog" element={<Blog />} />
               <Route path="/blog/:slug" element={<BlogPost />} />
+
+              {/* Admin */}
               <Route path="/admin/login" element={<AdminLogin />} />
               <Route path="/admin" element={<ProtectedRoute><AdminDashboard /></ProtectedRoute>} />
               <Route path="/admin/blogs" element={<ProtectedRoute><AdminBlogs /></ProtectedRoute>} />
               <Route path="/admin/blogs/:id" element={<ProtectedRoute><AdminBlogEditor /></ProtectedRoute>} />
+              <Route path="/admin/categories" element={<ProtectedRoute><AdminCategories /></ProtectedRoute>} />
+              <Route path="/admin/tags" element={<ProtectedRoute><AdminTags /></ProtectedRoute>} />
+              <Route path="/admin/pages" element={<ProtectedRoute><AdminPages /></ProtectedRoute>} />
+              <Route path="/admin/pages/:id" element={<ProtectedRoute><AdminPageEditor /></ProtectedRoute>} />
+              <Route path="/admin/media" element={<ProtectedRoute><AdminMedia /></ProtectedRoute>} />
               <Route path="/admin/gallery" element={<ProtectedRoute><AdminGallery /></ProtectedRoute>} />
               <Route path="/admin/seo" element={<ProtectedRoute><AdminSeo /></ProtectedRoute>} />
+              <Route path="/admin/settings" element={<ProtectedRoute><AdminSettings /></ProtectedRoute>} />
+              <Route path="/admin/users" element={<ProtectedRoute><AdminUsers /></ProtectedRoute>} />
+
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>
