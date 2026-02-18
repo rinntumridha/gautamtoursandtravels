@@ -59,11 +59,11 @@ const highlights = [
 ];
 
 const faqItems = [
-  { question: "Do your cars come with a driver?", answer: "Yes, all our rental cars come with experienced, professional drivers who know the routes well." },
-  { question: "Can I book a car for outstation travel?", answer: "Absolutely! We offer outstation car rental services to all major destinations from Nagpur including safari reserves, pilgrim centers, and tourist spots." },
-  { question: "What are your cancellation policies?", answer: "Cancellations made 24 hours before the trip are fully refundable. For last-minute cancellations, a nominal charge may apply." },
-  { question: "Do you provide luxury cars for weddings?", answer: "Yes, we have decorated luxury cars available for weddings and special events. Book in advance for the best selection." },
-  { question: "How do bulk bookings work?", answer: "For bulk bookings, share your requirements (dates, headcount, destinations) and our team will create a custom fleet plan with competitive rates." },
+  { question: "Do you provide drivers?", answer: "Yes, all our rental cars come with experienced, professional drivers who are well-versed with routes across Maharashtra and central India." },
+  { question: "Is fuel included?", answer: "Fuel costs are generally borne by the customer. However, for outstation packages, we offer all-inclusive pricing options that cover fuel charges. Ask us for details." },
+  { question: "Do you offer airport pickup?", answer: "Yes, we provide prompt airport pickup and drop services at Nagpur airport (Dr. Babasaheb Ambedkar International Airport) and all nearby railway stations." },
+  { question: "Can I book for multiple days?", answer: "Absolutely! We offer multi-day rental plans at discounted rates. Whether it's a 2-day safari trip or a week-long tour, we've got you covered with competitive pricing." },
+  { question: "Do you provide cars for group travel?", answer: "Yes, we offer Tempo Travellers, mini buses, and luxury buses for group travel. We handle corporate events, weddings, pilgrimages, and large family outings with dedicated fleet coordination." },
 ];
 
 const CarRental = () => {

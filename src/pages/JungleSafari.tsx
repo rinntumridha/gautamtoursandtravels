@@ -10,6 +10,7 @@ import {
 import Layout from "@/components/Layout";
 import PageHero from "@/components/PageHero";
 import InquiryForm from "@/components/InquiryForm";
+import FAQ from "@/components/FAQ";
 import heroImage from "@/assets/hero-tiger.jpg";
 
 interface SafariDestination {
@@ -81,12 +82,11 @@ const whyBookReasons = [
 ];
 
 const faqItems = [
-  { question: "Which is the closest jungle safari from Nagpur?", answer: "Umred-Pauni-Karhandla and Bor Wildlife Sanctuaries are the closest, both about 60-70 km from Nagpur. Gorewada is right on the outskirts of the city." },
-  { question: "Which reserve has the best tiger sighting rate?", answer: "Tadoba-Andhari Tiger Reserve currently has one of the highest tiger sighting success rates in India, followed closely by Pench Tiger Reserve." },
-  { question: "Do you provide transport to all safari locations?", answer: "Yes, we arrange comfortable pickup and drop from Nagpur to all safari destinations listed on our platform." },
-  { question: "Can I book a multi-destination safari package?", answer: "Absolutely! We offer customized multi-reserve packages combining 2 or more destinations with resort stays and transport." },
-  { question: "What is the safari season?", answer: "Most reserves are open from October to June. Peak wildlife sightings happen between February and May. Monsoon season (July-September) most reserves are closed." },
-  { question: "Is online safari permit booking available?", answer: "Safari permits are managed by the forest department. We assist you with the complete booking process including zone selection and timing." },
+  { question: "What is the best time for jungle safari?", answer: "Most tiger reserves are open from October to June. The best time for wildlife sightings is February to May when the dry season drives animals to water sources, making them easier to spot." },
+  { question: "How can I book a safari from Nagpur?", answer: "Simply contact us via phone or fill out the inquiry form on this page. We handle the entire booking process including permit assistance, zone selection, transport, and resort coordination from Nagpur." },
+  { question: "Are safari permits included?", answer: "Safari permit costs are included in our packages. We assist with the complete permit booking process through the forest department, ensuring you get the best zones and timings." },
+  { question: "Is pickup and drop available?", answer: "Yes, we provide comfortable pickup and drop services from Nagpur to all safari destinations. Our vehicles are well-maintained and driven by experienced drivers familiar with the routes." },
+  { question: "What documents are required for safari booking?", answer: "You'll need a valid government-issued photo ID (Aadhaar, PAN, Passport, or Driving License) for all members. For foreign nationals, a passport is mandatory. Children under 5 are generally not allowed on jeep safaris." },
 ];
 
 const JungleSafari = () => {
@@ -183,25 +183,7 @@ const JungleSafari = () => {
       </section>
 
       {/* FAQ */}
-      <section className="section-padding bg-slate-200">
-        <div className="container mx-auto max-w-3xl">
-          <h2 className="text-3xl md:text-4xl font-heading font-bold text-center mb-10">
-            Frequently Asked Questions
-          </h2>
-          <Accordion type="single" collapsible className="space-y-3">
-            {faqItems.map((item, i) => (
-              <AccordionItem key={i} value={`faq-${i}`} className="bg-card rounded-lg border border-border px-6">
-                <AccordionTrigger className="text-left font-medium text-base">
-                  {item.question}
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground">
-                  {item.answer}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
-        </div>
-      </section>
+      <FAQ items={faqItems} />
 
       {/* CTA + Inquiry */}
       <section className="section-padding bg-primary text-primary-foreground">

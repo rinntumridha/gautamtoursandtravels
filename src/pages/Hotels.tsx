@@ -2,6 +2,7 @@ import { CheckCircle, Shield, Sparkles, Users, Home } from "lucide-react";
 import Layout from "@/components/Layout";
 import PageHero from "@/components/PageHero";
 import InquiryForm from "@/components/InquiryForm";
+import FAQ from "@/components/FAQ";
 import resortImage from "@/assets/resort.jpg";
 
 const categories = [
@@ -9,6 +10,14 @@ const categories = [
   { icon: Sparkles, title: "Premium Wildlife Resorts", desc: "Elevated experiences with modern amenities" },
   { icon: Users, title: "Family-Friendly Stays", desc: "Safe, spacious rooms perfect for families with children" },
   { icon: Shield, title: "Group Accommodation", desc: "Ideal for office groups and large families" },
+];
+
+const faqItems = [
+  { question: "How close are the resorts to safari gates?", answer: "Most of our partner resorts are located within 5-15 km of the main safari entry gates, ensuring you can reach the reserve comfortably in time for morning and evening safaris." },
+  { question: "Are meals included in resort packages?", answer: "Yes, most resort packages include breakfast and dinner (MAP plan). Some premium packages offer all-inclusive meals (AP plan). Specific meal plans are mentioned in each package." },
+  { question: "Are resorts family-friendly?", answer: "Absolutely! We specifically recommend family-friendly resorts with spacious rooms, children's play areas, safe surroundings, and kid-friendly menus. Many resorts also offer nature walks and bonfire activities." },
+  { question: "Can I choose my preferred resort?", answer: "Yes, you can request a specific resort. We'll check availability and accommodate your preference. If it's unavailable, we'll suggest comparable alternatives in the same area." },
+  { question: "Is early check-in available?", answer: "Early check-in is subject to availability. Since many safari visitors arrive early morning, most partner resorts try to accommodate early arrivals. We recommend informing us in advance for the best experience." },
 ];
 
 const Hotels = () => {
@@ -53,6 +62,8 @@ const Hotels = () => {
           </div>
         </div>
       </section>
+
+      <FAQ items={faqItems} />
     </Layout>
   );
 };
