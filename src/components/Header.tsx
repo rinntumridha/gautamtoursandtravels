@@ -10,9 +10,9 @@ const navItems = [
   { label: "Jungle Safari", path: "/jungle-safari" },
   { label: "Hotels & Resorts", path: "/hotels" },
   { label: "Packages", path: "/packages" },
-  { label: "Blog", path: "/blog" },
   { label: "Gallery", path: "/gallery" },
   { label: "Testimonials", path: "/testimonials" },
+  { label: "Blog", path: "/blog" },
   { label: "Contact", path: "/contact" },
 ];
 
