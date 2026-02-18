@@ -6,10 +6,9 @@ import logo from "@/assets/logo.png";
 
 const navItems = [
   { label: "Home", path: "/" },
-  { label: "Pench Safari", path: "/pench-safari" },
-  { label: "Kanha Safari", path: "/kanha-safari" },
-  { label: "Hotels & Resorts", path: "/hotels" },
   { label: "Car Rental", path: "/car-rental" },
+  { label: "Jungle Safari", path: "/jungle-safari" },
+  { label: "Hotels & Resorts", path: "/hotels" },
   { label: "Packages", path: "/packages" },
   { label: "Blog", path: "/blog" },
   { label: "Gallery", path: "/gallery" },

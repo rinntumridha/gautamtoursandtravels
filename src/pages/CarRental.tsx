@@ -1,16 +1,69 @@
-import { Car as CarIcon, CheckCircle } from "lucide-react";
+import { Car, CheckCircle, Users, Crown, Building2, Phone, Clock, DollarSign, Shield } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Layout from "@/components/Layout";
 import PageHero from "@/components/PageHero";
 import InquiryForm from "@/components/InquiryForm";
+import FAQ from "@/components/FAQ";
 import carImage from "@/assets/car-rental.jpg";
 
-const fleet = [
-  "Luxury Cars",
-  "SUV Vehicles",
-  "Sedan Cars",
-  "Small Cars",
-  "Airport Pickup & Drop",
-  "Driver Included Option",
+interface ServiceCategory {
+  icon: React.ElementType;
+  title: string;
+  description: string;
+  idealFor: string;
+  vehicles: string[];
+  cta: string;
+}
+
+const categories: ServiceCategory[] = [
+  {
+    icon: Car,
+    title: "Car Rental Services",
+    description: "Reliable and affordable car rental for city travel, outstation trips, airport transfers, and daily commute needs.",
+    idealFor: "Families, solo travelers, couples, and small groups looking for comfortable point-to-point travel.",
+    vehicles: ["Sedan (Swift Dzire, Honda Amaze)", "Hatchback (Swift, i20)", "SUV (Innova, Ertiga)", "MUV (Marazzo, TUV300)"],
+    cta: "Get a Quote",
+  },
+  {
+    icon: Crown,
+    title: "Luxury Car Rental Services",
+    description: "Premium vehicles for weddings, VIP travel, business meetings, and special occasions. Experience comfort and style.",
+    idealFor: "Weddings, corporate executives, VIP guests, special celebrations, and high-profile events.",
+    vehicles: ["Toyota Innova Crysta", "Toyota Fortuner", "Mercedes-Benz", "BMW Series", "Audi"],
+    cta: "Book Luxury",
+  },
+  {
+    icon: Building2,
+    title: "Bulk Car Rental Services",
+    description: "Fleet solutions for corporate travel, group events, conferences, and large-scale transportation needs with dedicated coordination.",
+    idealFor: "Corporates, event organizers, wedding planners, tour groups, and conference coordinators.",
+    vehicles: ["Tempo Traveller (12-26 seater)", "Mini Bus (30-40 seater)", "Luxury Bus (45-50 seater)", "Fleet of Sedans/SUVs"],
+    cta: "Request Fleet Quote",
+  },
+];
+
+const comparisonData = [
+  { feature: "Best For", standard: "Daily travel & trips", luxury: "VIP & special occasions", bulk: "Groups & corporates" },
+  { feature: "Vehicle Range", standard: "Sedan, Hatchback, SUV", luxury: "Premium SUV, Sedan", bulk: "Tempo, Bus, Fleet" },
+  { feature: "Driver", standard: "Professional", luxury: "Trained chauffeur", bulk: "Dedicated fleet drivers" },
+  { feature: "Pricing", standard: "Budget-friendly", luxury: "Premium", bulk: "Custom bulk rates" },
+  { feature: "Booking", standard: "Instant", luxury: "Advance preferred", bulk: "Advance required" },
+];
+
+const highlights = [
+  { icon: Users, text: "Professional Drivers" },
+  { icon: Shield, text: "Clean & Sanitized Vehicles" },
+  { icon: DollarSign, text: "Transparent Pricing" },
+  { icon: Clock, text: "On-Time Pickup Guarantee" },
+];
+
+const faqItems = [
+  { question: "Do your cars come with a driver?", answer: "Yes, all our rental cars come with experienced, professional drivers who know the routes well." },
+  { question: "Can I book a car for outstation travel?", answer: "Absolutely! We offer outstation car rental services to all major destinations from Nagpur including safari reserves, pilgrim centers, and tourist spots." },
+  { question: "What are your cancellation policies?", answer: "Cancellations made 24 hours before the trip are fully refundable. For last-minute cancellations, a nominal charge may apply." },
+  { question: "Do you provide luxury cars for weddings?", answer: "Yes, we have decorated luxury cars available for weddings and special events. Book in advance for the best selection." },
+  { question: "How do bulk bookings work?", answer: "For bulk bookings, share your requirements (dates, headcount, destinations) and our team will create a custom fleet plan with competitive rates." },
 ];
 
 const CarRental = () => {
@@ -22,32 +75,116 @@ const CarRental = () => {
         image={carImage}
       />
 
+      {/* Service Categories */}
+      <section className="section-padding bg-card">
+        <div className="container mx-auto">
+          <h2 className="text-3xl md:text-4xl font-heading font-bold text-center mb-4">
+            Our Services
+          </h2>
+          <p className="text-muted-foreground text-center max-w-2xl mx-auto mb-12">
+            Choose from our range of car rental options tailored for every occasion and budget.
+          </p>
+
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {categories.map((cat, i) => (
+              <Card key={i} className="flex flex-col">
+                <CardHeader className="text-center pb-2">
+                  <cat.icon className="h-12 w-12 text-primary mx-auto mb-3" />
+                  <CardTitle className="text-xl">{cat.title}</CardTitle>
+                </CardHeader>
+                <CardContent className="flex-1 flex flex-col">
+                  <p className="text-muted-foreground text-sm mb-4">{cat.description}</p>
+                  <div className="bg-muted rounded-lg p-3 mb-4">
+                    <p className="text-xs font-semibold uppercase text-primary mb-1">Ideal For</p>
+                    <p className="text-sm text-muted-foreground">{cat.idealFor}</p>
+                  </div>
+                  <div className="space-y-2 mb-6 flex-1">
+                    {cat.vehicles.map((v) => (
+                      <div key={v} className="flex items-center gap-2">
+                        <CheckCircle className="h-4 w-4 text-primary shrink-0" />
+                        <span className="text-sm">{v}</span>
+                      </div>
+                    ))}
+                  </div>
+                  <a href="tel:+919325673079">
+                    <Button className="w-full bg-accent text-accent-foreground hover:bg-warm-light">
+                      {cat.cta}
+                    </Button>
+                  </a>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Comparison Table */}
+      <section className="section-padding bg-secondary">
+        <div className="container mx-auto">
+          <h2 className="text-3xl font-heading font-bold text-center mb-10">
+            Compare Our Services
+          </h2>
+          <div className="overflow-x-auto">
+            <table className="w-full bg-card rounded-xl overflow-hidden shadow-sm">
+              <thead>
+                <tr className="bg-primary text-primary-foreground">
+                  <th className="p-4 text-left font-semibold">Feature</th>
+                  <th className="p-4 text-center font-semibold">Standard</th>
+                  <th className="p-4 text-center font-semibold">Luxury</th>
+                  <th className="p-4 text-center font-semibold">Bulk</th>
+                </tr>
+              </thead>
+              <tbody>
+                {comparisonData.map((row, i) => (
+                  <tr key={i} className="border-b border-border last:border-b-0">
+                    <td className="p-4 font-medium">{row.feature}</td>
+                    <td className="p-4 text-center text-sm text-muted-foreground">{row.standard}</td>
+                    <td className="p-4 text-center text-sm text-muted-foreground">{row.luxury}</td>
+                    <td className="p-4 text-center text-sm text-muted-foreground">{row.bulk}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      {/* Highlights */}
+      <section className="section-padding bg-card">
+        <div className="container mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {highlights.map((h, i) => (
+              <div key={i} className="flex flex-col items-center text-center gap-2">
+                <div className="h-14 w-14 bg-primary/10 rounded-full flex items-center justify-center">
+                  <h.icon className="h-7 w-7 text-primary" />
+                </div>
+                <span className="font-semibold text-sm">{h.text}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <FAQ items={faqItems} />
+
+      {/* CTA + Inquiry */}
       <section className="section-padding bg-card">
         <div className="container mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            <div>
-              <h2 className="text-3xl font-heading font-bold mb-6">Our Fleet</h2>
-              <p className="text-muted-foreground leading-relaxed mb-8">
-                Whether you need a comfortable sedan for a family trip or a spacious SUV for jungle terrain, we have the right vehicle for you. All cars are well-maintained and come with professional, experienced drivers.
+            <div className="flex flex-col justify-center">
+              <h2 className="text-3xl font-heading font-bold mb-4">Ready to Book?</h2>
+              <p className="text-muted-foreground mb-6">
+                Tell us your travel requirements and we'll provide the best vehicle at the best price. No hidden charges, guaranteed.
               </p>
-
-              <div className="space-y-3 mb-8">
-                {fleet.map((item) => (
-                  <div key={item} className="flex items-center gap-3 bg-muted rounded-lg p-4">
-                    <CheckCircle className="h-5 w-5 text-primary shrink-0" />
-                    <span className="font-medium">{item}</span>
-                  </div>
-                ))}
-              </div>
-
-              <div className="bg-secondary rounded-xl p-5 flex items-start gap-3">
-                <CarIcon className="h-5 w-5 text-primary mt-0.5 shrink-0" />
-                <p className="text-sm">Reliable, punctual and clean vehicles for all your travel needs.</p>
-              </div>
+              <a href="tel:+919325673079" className="self-start">
+                <Button size="lg" className="bg-accent text-accent-foreground hover:bg-warm-light gap-2">
+                  <Phone className="h-5 w-5" /> Call Now
+                </Button>
+              </a>
             </div>
-
             <div>
-              <InquiryForm title="Book a Car" service="Car Rental Service" />
+              <InquiryForm title="Get a Car Rental Quote" service="Car Rental Service" />
             </div>
           </div>
         </div>

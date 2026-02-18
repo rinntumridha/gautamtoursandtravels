@@ -4,13 +4,13 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { lazy, Suspense } from "react";
+import { Navigate } from "react-router-dom";
 import { AuthProvider } from "@/contexts/AuthContext";
 import ProtectedRoute from "@/components/admin/ProtectedRoute";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 
-const PenchSafari = lazy(() => import("./pages/PenchSafari"));
-const KanhaSafari = lazy(() => import("./pages/KanhaSafari"));
+const JungleSafari = lazy(() => import("./pages/JungleSafari"));
 const Hotels = lazy(() => import("./pages/Hotels"));
 const CarRental = lazy(() => import("./pages/CarRental"));
 const Packages = lazy(() => import("./pages/Packages"));
@@ -54,8 +54,9 @@ const App = () => (
             <Routes>
               {/* Public */}
               <Route path="/" element={<Index />} />
-              <Route path="/pench-safari" element={<PenchSafari />} />
-              <Route path="/kanha-safari" element={<KanhaSafari />} />
+              <Route path="/jungle-safari" element={<JungleSafari />} />
+              <Route path="/pench-safari" element={<Navigate to="/jungle-safari" replace />} />
+              <Route path="/kanha-safari" element={<Navigate to="/jungle-safari" replace />} />
               <Route path="/hotels" element={<Hotels />} />
               <Route path="/car-rental" element={<CarRental />} />
               <Route path="/packages" element={<Packages />} />
