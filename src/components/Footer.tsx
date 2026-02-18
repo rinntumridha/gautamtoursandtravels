@@ -10,8 +10,8 @@ const Footer = () => {
         className="absolute inset-0 bg-cover bg-center bg-fixed"
         style={{ backgroundImage: `url(${jungleBg})` }} />
 
-      {/* Dark forest green overlay */}
-      <div className="absolute inset-0 bg-forest-dark/[0.82] backdrop-blur-[2px]" />
+      {/* Black overlay */}
+      <div className="absolute inset-0 bg-black/90 backdrop-blur-[2px]" />
 
       <div className="relative z-10 container mx-auto px-4 py-12 md:py-16 bg-transparent">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
