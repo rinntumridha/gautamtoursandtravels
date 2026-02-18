@@ -37,6 +37,13 @@ const destinations: SafariDestination[] = [
     safariType: "Jeep Safari in Turia, Karmajhiri, Jamtara, Sillari, Khursapar, and Rukhad zones.",
   },
   {
+    name: "Kanha National Park",
+    intro: "One of India's finest tiger reserves and the inspiration behind Rudyard Kipling's 'The Jungle Book'. Kanha is celebrated for saving the Barasingha (hard-ground swamp deer) from extinction.",
+    whyVisit: "Sprawling sal and bamboo forests, open meadows, and one of the highest tiger populations in India. Excellent for spotting tigers, leopards, wild dogs, and the rare Barasingha. World-class safari infrastructure.",
+    bestTime: "October to June. Peak season is February to May for the best tiger sightings.",
+    safariType: "Jeep Safari in Kisli, Kanha, Mukki, and Sarhi zones. Buffer zones also available.",
+  },
+  {
     name: "Navegaon-Nagzira Tiger Reserve",
     intro: "A hidden gem combining two sanctuaries — Navegaon National Park and Nagzira Wildlife Sanctuary — into one tiger corridor.",
     whyVisit: "Less crowded alternative with peaceful surroundings, good tiger and leopard sightings, and beautiful Navegaon lake. Perfect for nature lovers seeking tranquility.",
