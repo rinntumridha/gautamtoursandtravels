@@ -63,18 +63,18 @@ const Index = () => {
         <div className="relative z-10 container mx-auto px-4">
           <div className="max-w-2xl">
             <p className="text-beige font-medium text-sm tracking-widest uppercase mb-4 animate-fade-in">
-              Trusted Jungle Safari & Travel Partner from Nagpur
+              Trusted Car Rental & Travel Partner from Nagpur
             </p>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-primary-foreground leading-tight mb-6 animate-fade-in" style={{ animationDelay: "0.15s" }}>
-              Experience the Thrill of Jungle Safari
+              Premium Car Rental Services in Nagpur
             </h1>
             <p className="text-lg md:text-xl text-primary-foreground/80 mb-8 animate-fade-in" style={{ animationDelay: "0.3s" }}>
-              Book Pench & Kanha Safari, Verified Resorts & Reliable Car Rentals — All in One Place.
+              Luxury Cars, SUVs & Comfortable Vehicles with Professional Drivers — For Safari Trips, City Travel & Outstation Journeys.
             </p>
             <div className="flex flex-wrap gap-4 animate-fade-in" style={{ animationDelay: "0.45s" }}>
-              <Link to="/pench-safari">
+              <Link to="/car-rental">
                 <Button size="lg" className="bg-accent text-accent-foreground hover:bg-warm-light text-base px-8 py-6">
-                  Book Safari Now
+                  Book a Car Now
                 </Button>
               </Link>
               <Link to="/contact">
