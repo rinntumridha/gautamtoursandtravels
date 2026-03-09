@@ -5,7 +5,16 @@ import Layout from "@/components/Layout";
 import PageHero from "@/components/PageHero";
 import InquiryForm from "@/components/InquiryForm";
 import FAQ from "@/components/FAQ";
+import SEO from "@/components/SEO";
 import carImage from "@/assets/car-rental.jpg";
+
+const carRentalSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Car Rental",
+  "provider": { "@type": "TravelAgency", "name": "Gautam Tours and Travels" },
+  "areaServed": { "@type": "City", "name": "Nagpur" }
+};
 
 interface ServiceCategory {
   icon: React.ElementType;
