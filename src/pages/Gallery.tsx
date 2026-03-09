@@ -29,6 +29,7 @@ const Gallery = () => {
         description="Explore our jungle safari travel gallery featuring wildlife, safari adventures and memorable trips with Gautam Tours."
         schema={gallerySchema}
       />
+      <PageHero title="Gallery" subtitle="Glimpses of wildlife adventures with Gautam Tours" image={kanhaImage} />
 
       <section className="section-padding bg-card">
         <div className="container mx-auto">

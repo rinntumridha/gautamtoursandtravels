@@ -19,6 +19,7 @@ const Contact = () => {
         description="Contact Gautam Tours & Travels for jungle safari booking, car rental and travel packages from Nagpur."
         schema={contactSchema}
       />
+      <PageHero title="Contact Us" subtitle="Get in touch to plan your next wildlife adventure" image={heroImage} />
 
       <section className="section-padding bg-card">
         <div className="container mx-auto">

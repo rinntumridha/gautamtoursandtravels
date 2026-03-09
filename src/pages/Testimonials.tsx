@@ -27,6 +27,7 @@ const Testimonials = () => {
         description="Read customer reviews and testimonials from travelers who experienced jungle safari tours and travel services with Gautam Tours."
         schema={testimonialsSchema}
       />
+      <PageHero title="Testimonials" subtitle="What our happy guests say about their wildlife experience" image={heroImage} />
 
       <section className="section-padding bg-card">
         <div className="container mx-auto max-w-4xl">
