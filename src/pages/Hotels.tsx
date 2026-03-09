@@ -3,7 +3,15 @@ import Layout from "@/components/Layout";
 import PageHero from "@/components/PageHero";
 import InquiryForm from "@/components/InquiryForm";
 import FAQ from "@/components/FAQ";
+import SEO from "@/components/SEO";
 import resortImage from "@/assets/resort.jpg";
+
+const hotelsSchema = {
+  "@context": "https://schema.org",
+  "@type": "LodgingBusiness",
+  "name": "Wildlife Resort Booking",
+  "provider": { "@type": "TravelAgency", "name": "Gautam Tours and Travels" }
+};
 
 const categories = [
   { icon: Home, title: "Budget Resorts", desc: "Clean, comfortable stays at affordable prices" },
