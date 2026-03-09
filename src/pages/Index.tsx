@@ -3,10 +3,35 @@ import { Button } from "@/components/ui/button";
 import { Shield, TreePine, Car, Hotel, CheckCircle, Phone, Star, ArrowRight } from "lucide-react";
 import Layout from "@/components/Layout";
 import FAQ from "@/components/FAQ";
+import SEO from "@/components/SEO";
 import heroImage from "@/assets/hero-car-rental.jpg";
 import penchImage from "@/assets/pench-safari.jpg";
 import resortImage from "@/assets/resort.jpg";
 import carImage from "@/assets/car-rental.jpg";
+
+const homeSchema = {
+  "@context": "https://schema.org",
+  "@type": "TravelAgency",
+  "name": "Gautam Tours and Travels",
+  "url": "https://gautamtoursandtravels.com",
+  "logo": "https://gautamtoursandtravels.com/logo.png",
+  "telephone": "+91-9325673079",
+  "email": "info@gautamtoursandtravels.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Plot no. 13, Near Mulchand Memorial Hospital, Parvati Nagar",
+    "addressLocality": "Nagpur",
+    "addressRegion": "Maharashtra",
+    "postalCode": "440027",
+    "addressCountry": "IN"
+  },
+  "sameAs": [
+    "https://www.facebook.com/gautamtoursandtravels",
+    "https://www.instagram.com/gautamtoursandtravels",
+    "https://x.com/gautamtours",
+    "https://www.youtube.com/channel/UCve3EBX6_rkk8cbjzS0dOng"
+  ]
+};
 
 const services = [
 {
