@@ -57,7 +57,11 @@ const Blog = () => {
 
   return (
     <Layout>
-      <PageHero title="Blog" subtitle="Wildlife stories, travel tips, and safari guides" image={heroImage} />
+      <SEO
+        title="Jungle Safari Travel Blog | Wildlife Travel Tips"
+        description="Read jungle safari travel guides, wildlife tips and travel insights from Gautam Tours & Travels."
+        schema={blogSchema}
+      />
 
       <section className="section-padding bg-card">
         <div className="container mx-auto">
