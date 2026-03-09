@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Shield, TreePine, Car, Hotel, CheckCircle, Phone, Star, ArrowRight } from "lucide-react";
 import Layout from "@/components/Layout";
 import FAQ from "@/components/FAQ";
-import heroImage from "@/assets/hero-tiger.jpg";
+import heroImage from "@/assets/hero-car-rental.jpg";
 import penchImage from "@/assets/pench-safari.jpg";
 import resortImage from "@/assets/resort.jpg";
 import carImage from "@/assets/car-rental.jpg";
