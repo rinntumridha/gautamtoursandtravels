@@ -62,13 +62,13 @@ const Index = () => {
         <div className="absolute inset-0 hero-overlay" />
         <div className="relative z-10 container mx-auto px-4">
           <div className="max-w-2xl">
-            <p className="text-beige font-medium text-sm tracking-widest uppercase mb-4 animate-fade-in">
+            <p className="text-white font-medium text-sm tracking-widest uppercase mb-4 animate-fade-in drop-shadow-lg">
               Trusted Car Rental & Travel Partner from Nagpur
             </p>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-primary-foreground leading-tight mb-6 animate-fade-in" style={{ animationDelay: "0.15s" }}>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white leading-tight mb-6 animate-fade-in drop-shadow-lg" style={{ animationDelay: "0.15s" }}>
               Premium Car Rental Services in Nagpur
             </h1>
-            <p className="text-lg md:text-xl text-primary-foreground/80 mb-8 animate-fade-in" style={{ animationDelay: "0.3s" }}>
+            <p className="text-lg md:text-xl text-white/90 mb-8 animate-fade-in drop-shadow-md" style={{ animationDelay: "0.3s" }}>
               Luxury Cars, SUVs & Comfortable Vehicles with Professional Drivers — For Safari Trips, City Travel & Outstation Journeys.
             </p>
             <div className="flex flex-wrap gap-4 animate-fade-in" style={{ animationDelay: "0.45s" }}>
