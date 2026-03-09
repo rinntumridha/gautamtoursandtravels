@@ -14,7 +14,11 @@ const contactSchema = {
 const Contact = () => {
   return (
     <Layout>
-      <PageHero title="Contact Us" subtitle="Get in touch to plan your next wildlife adventure" image={heroImage} />
+      <SEO
+        title="Contact Gautam Tours & Travels | Nagpur Safari Booking"
+        description="Contact Gautam Tours & Travels for jungle safari booking, car rental and travel packages from Nagpur."
+        schema={contactSchema}
+      />
 
       <section className="section-padding bg-card">
         <div className="container mx-auto">

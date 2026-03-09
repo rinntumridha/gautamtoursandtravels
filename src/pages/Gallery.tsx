@@ -24,7 +24,11 @@ const images = [
 const Gallery = () => {
   return (
     <Layout>
-      <PageHero title="Gallery" subtitle="Glimpses of wildlife adventures with Gautam Tours" image={kanhaImage} />
+      <SEO
+        title="Jungle Safari Travel Gallery | Gautam Tours & Travels"
+        description="Explore our jungle safari travel gallery featuring wildlife, safari adventures and memorable trips with Gautam Tours."
+        schema={gallerySchema}
+      />
 
       <section className="section-padding bg-card">
         <div className="container mx-auto">

@@ -108,7 +108,11 @@ const faqItems = [
 const JungleSafari = () => {
   return (
     <Layout>
-      <PageHero
+      <SEO
+        title="Jungle Safari Booking from Nagpur | Tadoba, Pench & More"
+        description="Plan jungle safari tours from Nagpur. Visit Tadoba, Pench, Melghat and other wildlife reserves with safari booking, resorts and travel support."
+        schema={safariSchema}
+      />
         title="Explore India's Top Jungle Safari Destinations"
         subtitle="Trusted Safari Booking & Travel Assistance from Nagpur"
         image={heroImage}

@@ -81,7 +81,11 @@ const faqItems = [
 const Index = () => {
   return (
     <Layout>
-      {/* Hero Section */}
+      <SEO
+        title="Jungle Safari & Car Rental from Nagpur | Gautam Tours & Travels"
+        description="Book jungle safari tours, car rental and verified resorts from Nagpur. Explore Pench, Tadoba, Kanha and more with Gautam Tours & Travels."
+        schema={homeSchema}
+      />
       <section className="relative h-[90vh] min-h-[600px] flex items-center overflow-hidden">
         <img src={heroImage} alt="Tiger in Indian jungle" className="absolute inset-0 w-full h-full object-cover" />
         <div className="absolute inset-0 hero-overlay" />

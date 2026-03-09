@@ -122,16 +122,6 @@ const Blog = () => {
         </div>
       </section>
 
-      {/* Blog structured data */}
-      <script type="application/ld+json" dangerouslySetInnerHTML={{
-        __html: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "Blog",
-          name: "Gautam Tours & Travels Blog",
-          description: "Wildlife stories, travel tips, and safari guides from Nagpur",
-          url: `${window.location.origin}/blog`,
-        }),
-      }} />
     </Layout>
   );
 };

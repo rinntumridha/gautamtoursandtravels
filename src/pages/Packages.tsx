@@ -176,7 +176,11 @@ const faqItems = [
 const Packages = () => {
   return (
     <Layout>
-      <PageHero
+      <SEO
+        title="Jungle Safari Packages from Nagpur | Wildlife Tour Deals"
+        description="Explore safari packages from Nagpur including jungle safari, hotel stay and car rental. Custom wildlife travel packages available."
+        schema={packagesSchema}
+      />
         title="Tour Packages"
         subtitle="Safari + Car Rental + Resort — All-inclusive travel packages from Nagpur"
         image={heroImage}

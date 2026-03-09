@@ -31,7 +31,11 @@ const faqItems = [
 const Hotels = () => {
   return (
     <Layout>
-      <PageHero
+      <SEO
+        title="Wildlife Resorts & Hotels near Tiger Reserves | Nagpur"
+        description="Book comfortable resorts and hotels near jungle safari destinations like Pench, Tadoba and Kanha with Gautam Tours & Travels."
+        schema={hotelsSchema}
+      />
         title="Hotels & Resorts"
         subtitle="Verified, comfortable stays near Pench & Kanha wildlife zones"
         image={resortImage}
