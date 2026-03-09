@@ -1,7 +1,14 @@
 import { Star } from "lucide-react";
 import Layout from "@/components/Layout";
 import PageHero from "@/components/PageHero";
+import SEO from "@/components/SEO";
 import heroImage from "@/assets/hero-tiger.jpg";
+
+const testimonialsSchema = {
+  "@context": "https://schema.org",
+  "@type": "Review",
+  "itemReviewed": { "@type": "TravelAgency", "name": "Gautam Tours and Travels" }
+};
 
 const testimonials = [
   { name: "Rajesh Sharma", location: "Nagpur", text: "Wonderful experience! The safari booking was smooth and the resort was perfect for my family. Highly recommend Gautam Tours for Pench trip.", rating: 5 },
