@@ -10,10 +10,17 @@ import carImage from "@/assets/car-rental.jpg";
 
 const services = [
 {
+  icon: Car,
+  title: "Car Rental Services",
+  desc: "Luxury cars, SUVs and small vehicles with professional drivers.",
+  link: "/car-rental",
+  image: carImage
+},
+{
   icon: TreePine,
   title: "Jungle Safari Booking",
   desc: "Pench & Kanha Tiger Reserve safari assistance with zone guidance and confirmed bookings.",
-  link: "/pench-safari",
+  link: "/jungle-safari",
   image: penchImage
 },
 {
@@ -22,13 +29,6 @@ const services = [
   desc: "Verified, clean and comfortable stays near wildlife zones.",
   link: "/hotels",
   image: resortImage
-},
-{
-  icon: Car,
-  title: "Car Rental Services",
-  desc: "Luxury cars, SUVs and small vehicles with professional drivers.",
-  link: "/car-rental",
-  image: carImage
 }];
 
 
