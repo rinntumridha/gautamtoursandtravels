@@ -181,6 +181,7 @@ const Packages = () => {
         description="Explore safari packages from Nagpur including jungle safari, hotel stay and car rental. Custom wildlife travel packages available."
         schema={packagesSchema}
       />
+      <PageHero
         title="Tour Packages"
         subtitle="Safari + Car Rental + Resort — All-inclusive travel packages from Nagpur"
         image={heroImage}

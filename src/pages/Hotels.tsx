@@ -36,6 +36,7 @@ const Hotels = () => {
         description="Book comfortable resorts and hotels near jungle safari destinations like Pench, Tadoba and Kanha with Gautam Tours & Travels."
         schema={hotelsSchema}
       />
+      <PageHero
         title="Hotels & Resorts"
         subtitle="Verified, comfortable stays near Pench & Kanha wildlife zones"
         image={resortImage}

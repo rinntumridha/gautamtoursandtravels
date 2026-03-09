@@ -82,6 +82,7 @@ const CarRental = () => {
         title="Car Rental in Nagpur | Luxury, Bulk & Travel Cars"
         description="Affordable car rental in Nagpur with professional drivers. Luxury cars, SUVs and bulk vehicle booking for tours, safari trips and events."
         schema={carRentalSchema}
+      />
       <PageHero
         title="Car Rental Services"
         subtitle="Reliable, punctual and clean vehicles for all your travel needs"
