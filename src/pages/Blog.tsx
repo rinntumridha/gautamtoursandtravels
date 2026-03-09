@@ -2,10 +2,18 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Layout from "@/components/Layout";
 import PageHero from "@/components/PageHero";
+import SEO from "@/components/SEO";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Calendar, User, ArrowRight } from "lucide-react";
 import heroImage from "@/assets/hero-tiger.jpg";
+
+const blogSchema = {
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "Gautam Tours Travel Blog",
+  "url": "https://gautamtoursandtravels.com/blog"
+};
 
 interface BlogPost {
   id: string;
@@ -49,7 +57,11 @@ const Blog = () => {
 
   return (
     <Layout>
-      <PageHero title="Blog" subtitle="Wildlife stories, travel tips, and safari guides" image={heroImage} />
+      <SEO
+        title="Jungle Safari Travel Blog | Wildlife Travel Tips"
+        description="Read jungle safari travel guides, wildlife tips and travel insights from Gautam Tours & Travels."
+        schema={blogSchema}
+      />
 
       <section className="section-padding bg-card">
         <div className="container mx-auto">
@@ -110,16 +122,6 @@ const Blog = () => {
         </div>
       </section>
 
-      {/* Blog structured data */}
-      <script type="application/ld+json" dangerouslySetInnerHTML={{
-        __html: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "Blog",
-          name: "Gautam Tours & Travels Blog",
-          description: "Wildlife stories, travel tips, and safari guides from Nagpur",
-          url: `${window.location.origin}/blog`,
-        }),
-      }} />
     </Layout>
   );
 };

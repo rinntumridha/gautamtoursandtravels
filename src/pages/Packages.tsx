@@ -5,7 +5,15 @@ import Layout from "@/components/Layout";
 import PageHero from "@/components/PageHero";
 import InquiryForm from "@/components/InquiryForm";
 import FAQ from "@/components/FAQ";
+import SEO from "@/components/SEO";
 import heroImage from "@/assets/hero-tiger.jpg";
+
+const packagesSchema = {
+  "@context": "https://schema.org",
+  "@type": "TouristTrip",
+  "name": "Wildlife Safari Packages",
+  "provider": { "@type": "TravelAgency", "name": "Gautam Tours and Travels" }
+};
 
 const packages = [
   {
@@ -168,6 +176,11 @@ const faqItems = [
 const Packages = () => {
   return (
     <Layout>
+      <SEO
+        title="Jungle Safari Packages from Nagpur | Wildlife Tour Deals"
+        description="Explore safari packages from Nagpur including jungle safari, hotel stay and car rental. Custom wildlife travel packages available."
+        schema={packagesSchema}
+      />
       <PageHero
         title="Tour Packages"
         subtitle="Safari + Car Rental + Resort — All-inclusive travel packages from Nagpur"

@@ -1,10 +1,17 @@
 import Layout from "@/components/Layout";
 import PageHero from "@/components/PageHero";
+import SEO from "@/components/SEO";
 import heroImage from "@/assets/hero-tiger.jpg";
 import penchImage from "@/assets/pench-safari.jpg";
 import kanhaImage from "@/assets/kanha-safari.jpg";
 import resortImage from "@/assets/resort.jpg";
 import carImage from "@/assets/car-rental.jpg";
+
+const gallerySchema = {
+  "@context": "https://schema.org",
+  "@type": "ImageGallery",
+  "name": "Gautam Tours Travel Gallery"
+};
 
 const images = [
   { src: heroImage, alt: "Bengal Tiger in the wild", caption: "Tiger sighting at Pench" },
@@ -17,6 +24,11 @@ const images = [
 const Gallery = () => {
   return (
     <Layout>
+      <SEO
+        title="Jungle Safari Travel Gallery | Gautam Tours & Travels"
+        description="Explore our jungle safari travel gallery featuring wildlife, safari adventures and memorable trips with Gautam Tours."
+        schema={gallerySchema}
+      />
       <PageHero title="Gallery" subtitle="Glimpses of wildlife adventures with Gautam Tours" image={kanhaImage} />
 
       <section className="section-padding bg-card">

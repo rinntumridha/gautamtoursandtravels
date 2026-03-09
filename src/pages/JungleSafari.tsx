@@ -11,7 +11,16 @@ import Layout from "@/components/Layout";
 import PageHero from "@/components/PageHero";
 import InquiryForm from "@/components/InquiryForm";
 import FAQ from "@/components/FAQ";
+import SEO from "@/components/SEO";
 import heroImage from "@/assets/hero-tiger.jpg";
+
+const safariSchema = {
+  "@context": "https://schema.org",
+  "@type": "TouristTrip",
+  "name": "Jungle Safari Tours from Nagpur",
+  "touristType": "Wildlife Tour",
+  "provider": { "@type": "TravelAgency", "name": "Gautam Tours and Travels" }
+};
 
 interface SafariDestination {
   name: string;
@@ -99,6 +108,11 @@ const faqItems = [
 const JungleSafari = () => {
   return (
     <Layout>
+      <SEO
+        title="Jungle Safari Booking from Nagpur | Tadoba, Pench & More"
+        description="Plan jungle safari tours from Nagpur. Visit Tadoba, Pench, Melghat and other wildlife reserves with safari booking, resorts and travel support."
+        schema={safariSchema}
+      />
       <PageHero
         title="Explore India's Top Jungle Safari Destinations"
         subtitle="Trusted Safari Booking & Travel Assistance from Nagpur"

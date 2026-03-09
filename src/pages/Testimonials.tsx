@@ -1,7 +1,14 @@
 import { Star } from "lucide-react";
 import Layout from "@/components/Layout";
 import PageHero from "@/components/PageHero";
+import SEO from "@/components/SEO";
 import heroImage from "@/assets/hero-tiger.jpg";
+
+const testimonialsSchema = {
+  "@context": "https://schema.org",
+  "@type": "Review",
+  "itemReviewed": { "@type": "TravelAgency", "name": "Gautam Tours and Travels" }
+};
 
 const testimonials = [
   { name: "Rajesh Sharma", location: "Nagpur", text: "Wonderful experience! The safari booking was smooth and the resort was perfect for my family. Highly recommend Gautam Tours for Pench trip.", rating: 5 },
@@ -15,6 +22,11 @@ const testimonials = [
 const Testimonials = () => {
   return (
     <Layout>
+      <SEO
+        title="Customer Reviews | Gautam Tours & Travels Nagpur"
+        description="Read customer reviews and testimonials from travelers who experienced jungle safari tours and travel services with Gautam Tours."
+        schema={testimonialsSchema}
+      />
       <PageHero title="Testimonials" subtitle="What our happy guests say about their wildlife experience" image={heroImage} />
 
       <section className="section-padding bg-card">

@@ -5,7 +5,16 @@ import Layout from "@/components/Layout";
 import PageHero from "@/components/PageHero";
 import InquiryForm from "@/components/InquiryForm";
 import FAQ from "@/components/FAQ";
+import SEO from "@/components/SEO";
 import carImage from "@/assets/car-rental.jpg";
+
+const carRentalSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Car Rental",
+  "provider": { "@type": "TravelAgency", "name": "Gautam Tours and Travels" },
+  "areaServed": { "@type": "City", "name": "Nagpur" }
+};
 
 interface ServiceCategory {
   icon: React.ElementType;
@@ -69,6 +78,11 @@ const faqItems = [
 const CarRental = () => {
   return (
     <Layout>
+      <SEO
+        title="Car Rental in Nagpur | Luxury, Bulk & Travel Cars"
+        description="Affordable car rental in Nagpur with professional drivers. Luxury cars, SUVs and bulk vehicle booking for tours, safari trips and events."
+        schema={carRentalSchema}
+      />
       <PageHero
         title="Car Rental Services"
         subtitle="Reliable, punctual and clean vehicles for all your travel needs"

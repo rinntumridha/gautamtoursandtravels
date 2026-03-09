@@ -2,11 +2,23 @@ import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import Layout from "@/components/Layout";
 import PageHero from "@/components/PageHero";
 import InquiryForm from "@/components/InquiryForm";
+import SEO from "@/components/SEO";
 import heroImage from "@/assets/hero-tiger.jpg";
+
+const contactSchema = {
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "name": "Contact Gautam Tours and Travels"
+};
 
 const Contact = () => {
   return (
     <Layout>
+      <SEO
+        title="Contact Gautam Tours & Travels | Nagpur Safari Booking"
+        description="Contact Gautam Tours & Travels for jungle safari booking, car rental and travel packages from Nagpur."
+        schema={contactSchema}
+      />
       <PageHero title="Contact Us" subtitle="Get in touch to plan your next wildlife adventure" image={heroImage} />
 
       <section className="section-padding bg-card">
