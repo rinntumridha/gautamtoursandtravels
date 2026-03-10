@@ -87,7 +87,7 @@ const Index = () => {
         schema={homeSchema}
       />
       <section className="relative h-[90vh] min-h-[600px] flex items-center overflow-hidden">
-        <img src={heroImage} alt="Tiger in Indian jungle" className="absolute inset-0 w-full h-full object-cover" />
+        <img src={heroImage} alt="Premium SUV driving through jungle highway at sunset" className="absolute inset-0 w-full h-full object-cover object-right" />
         <div className="absolute inset-0 hero-overlay" />
         <div className="relative z-10 container mx-auto px-4">
           <div className="max-w-2xl">
