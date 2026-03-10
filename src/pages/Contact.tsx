@@ -40,13 +40,13 @@ const Contact = () => {
                     <p className="text-muted-foreground text-sm group-hover:text-primary transition-colors">+91 9325673079</p>
                   </div>
                 </a>
-                <a href="mailto:info@gautamtoursandtravels.com" className="flex items-start gap-4 group">
+                <a href="mailto:gautamtoursandtravels15@gmail.com" className="flex items-start gap-4 group">
                   <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
                     <Mail className="h-5 w-5 text-primary" />
                   </div>
                   <div>
                     <p className="font-semibold text-sm">Email</p>
-                    <p className="text-muted-foreground text-sm group-hover:text-primary transition-colors">info@gautamtoursandtravels.com</p>
+                    <p className="text-muted-foreground text-sm group-hover:text-primary transition-colors">gautamtoursandtravels15@gmail.com</p>
                   </div>
                 </a>
                 <div className="flex items-start gap-4">
