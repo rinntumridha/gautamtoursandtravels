@@ -16,7 +16,7 @@ const homeSchema = {
   "url": "https://gautamtoursandtravels.com",
   "logo": "https://gautamtoursandtravels.com/logo.png",
   "telephone": "+91-9325673079",
-  "email": "info@gautamtoursandtravels.com",
+  "email": "gautamtoursandtravels15@gmail.com",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "Plot no. 13, Near Mulchand Memorial Hospital, Parvati Nagar",
