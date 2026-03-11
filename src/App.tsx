@@ -34,6 +34,7 @@ const AdminGallery = lazy(() => import("./pages/admin/AdminGallery"));
 const AdminSeo = lazy(() => import("./pages/admin/AdminSeo"));
 const AdminSettings = lazy(() => import("./pages/admin/AdminSettings"));
 const AdminUsers = lazy(() => import("./pages/admin/AdminUsers"));
+const ResetPassword = lazy(() => import("./pages/admin/ResetPassword"));
 
 const queryClient = new QueryClient();
 
